@@ -1,0 +1,22 @@
+{
+  "name": "My Gold Melting",
+  "short_name": "Gold Melting",
+  "description": "Calculate gold and silver melting purity, touches, and jewellery costing.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#F0F0F1",
+  "theme_color": "#2196F3",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "assets/images/ic_launcher.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/ic_launcher.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
