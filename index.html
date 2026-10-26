@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#2196F3">
+    <meta name="description" content="My Gold Melting - The potent application for goldsmiths to determine gold and silver melting purity and jewellery costing.">
+    <title>My Gold Melting</title>
+    <link rel="icon" type="image/png" href="assets/images/ic_launcher.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="app-viewport">
+    <div class="screens-wrapper">
+
+        <!-- ==========================================================================
+             0. Splash Screen
+             ========================================================================== -->
+        <section id="screen-splash" class="screen">
+            <img src="assets/images/ic_launcher.png" alt="My Gold Melting" class="splash-logo">
+            <h1 class="splash-title" data-i18n="app_name">My Gold Melting</h1>
+            <p class="splash-subtitle" data-i18n="lblPoweredBy">Developed by: Evostackr</p>
+        </section>
+
+        <!-- ==========================================================================
+             1. Dashboard Screen (MainActivity)
+             ========================================================================== -->
+        <section id="screen-dashboard" class="screen active">
+            <img src="assets/images/dashboard_background.png" alt="" class="bg-decor tint-teal">
+            <div class="screen-content">
+                <header class="dashboard-header">
+                    <h1 class="app-main-title" data-i18n="app_name">My Gold Melting</h1>
+                    <div id="lblGreetings" class="greeting-text">Good Afternoon</div>
+                    <div class="welcome-text" data-i18n="welcome_msg">Welcome to Dashboard!</div>
+                </header>
+
+                <main class="dashboard-grid">
+                    <div class="dashboard-row">
+                        <!-- Melting Card -->
+                        <div class="dash-card" id="btnMelting" data-navigate="#/melting">
+                            <div class="card-icon-circle melting-icon">
+                                <img src="assets/images/dashboard.png" alt="Melting">
+                            </div>
+                            <span class="dash-card-label label-melting" data-i18n="mnuMelting">Melting</span>
+                        </div>
+
+                        <!-- Jewellery Cost Card -->
+                        <div class="dash-card" id="btnJewelleryCosting" data-navigate="#/jewellery-cost">
+                            <div class="card-icon-circle costing-icon">
+                                <svg viewBox="0 0 24 24"><path d="M12,2C6.48,2 2,6.48 2,12c0,1.33 0.26,2.61 0.74,3.77L8,10.5l3.3,2.78L14.58,10H13V8h5v5h-2v-1.58L11.41,16l-3.29,-2.79l-4.4,4.4C5.52,20.26 8.56,22 12,22h8c1.1,0 2,-0.9 2,-2v-8C22,6.48 17.52,2 12,2zM19.5,20.5c-0.55,0 -1,-0.45 -1,-1s0.45,-1 1,-1s1,0.45 1,1S20.05,20.5 19.5,20.5z"/></svg>
+                            </div>
+                            <span class="dash-card-label label-costing" data-i18n="mnuCosting">Jewellery Cost</span>
+                        </div>
+                    </div>
+
+                    <!-- Settings Card -->
+                    <div class="dash-card" id="btnSettings" data-navigate="#/settings">
+                        <div class="card-icon-circle settings-icon">
+                            <svg viewBox="0 0 24 24"><path d="M19.14,12.94c0.04,-0.3 0.06,-0.61 0.06,-0.94c0,-0.32 -0.02,-0.64 -0.07,-0.94l2.03,-1.58c0.18,-0.14 0.23,-0.41 0.12,-0.61l-1.92,-3.32c-0.12,-0.22 -0.37,-0.29 -0.59,-0.22l-2.39,0.96c-0.5,-0.38 -1.03,-0.7 -1.62,-0.94L14.4,2.81c-0.04,-0.24 -0.24,-0.41 -0.48,-0.41h-3.84c-0.24,0 -0.43,0.17 -0.47,0.41L9.25,5.35C8.66,5.59 8.12,5.92 7.63,6.29L5.24,5.33c-0.22,-0.08 -0.47,0 -0.59,0.22L2.74,8.87C2.62,9.08 2.66,9.34 2.86,9.48l2.03,1.58C4.84,11.36 4.8,11.69 4.8,12s0.02,0.64 0.07,0.94l-2.03,1.58c-0.18,0.14 -0.23,0.41 -0.12,0.61l1.92,3.32c0.12,0.22 0.37,0.29 0.59,0.22l2.39,-0.96c0.5,0.38 1.03,0.7 1.62,0.94l0.36,2.54c0.05,0.24 0.24,0.41 0.48,0.41h3.84c0.24,0 0.44,-0.17 0.47,-0.41l0.36,-2.54c0.59,-0.24 1.13,-0.56 1.62,-0.94l2.39,0.96c0.22,0.08 0.47,0 0.59,-0.22l1.92,-3.32c0.12,-0.22 0.07,-0.47 -0.12,-0.61L19.14,12.94zM12,15.6c-1.98,0 -3.6,-1.62 -3.6,-3.6s1.62,-3.6 3.6,-3.6s3.6,1.62 3.6,3.6S13.98,15.6 12,15.6z"/></svg>
+                        </div>
+                        <span class="dash-card-label label-settings" data-i18n="mnuSettings">Settings</span>
+                    </div>
+                </main>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             2. Gold Melting Calculator Screen (MeltingActivity)
+             ========================================================================== -->
+        <section id="screen-melting" class="screen">
+            <img src="assets/images/dashboard_background.png" alt="" class="bg-decor tint-blue">
+            <header class="toolbar">
+                <button class="toolbar-btn" data-nav-back aria-label="Back">
+                    <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                </button>
+                <button class="toolbar-btn history-pill" data-navigate="#/melting-history" aria-label="History">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M13,3c-4.97,0 -9,4.03 -9,9L1,12l3.89,3.89 0.07,0.14L9,12L6,12c0,-3.87 3.13,-7 7,-7s7,3.13 7,7 -3.13,7 -7,7c-1.93,0 -3.68,-0.79 -4.94,-2.06l-1.42,1.42C8.27,19.99 10.51,21 13,21c4.97,0 9,-4.03 9,-9s-4.03,-9 -9,-9zM12,8v5l4.28,2.54 0.72,-1.21 -3.5,-2.08L13.5,8L12,8z"/></svg>
+                </button>
+            </header>
+
+            <div class="screen-content">
+                <div class="subscreen-heading">
+                    <h2 class="subscreen-title" data-i18n="title_melting">Gold Melting Control</h2>
+                    <p class="subscreen-desc" data-i18n="melting_msg">Process for melting and fine gold</p>
+                </div>
+
+                <div class="form-card">
+                    <div class="form-inputs-grid melting-inputs">
+                        <div class="outline-group">
+                            <input type="text" id="txtMeltingWeight" placeholder=" " autocomplete="off">
+                            <label data-i18n="space_separate">Enter Weight(Separate with space)</label>
+                        </div>
+
+                        <div class="outline-group">
+                            <input type="text" id="txtMeltingTouch" placeholder=" " autocomplete="off">
+                            <label data-i18n="Enter_Touch">Enter Touche (Separate with space)</label>
+                        </div>
+
+                        <div class="outline-group">
+                            <input type="number" step="any" id="txtMeltingOutput" placeholder=" " autocomplete="off">
+                            <label data-i18n="space_separate1">Enter Output Touche</label>
+                        </div>
+                    </div>
+
+                    <!-- Result Box -->
+                    <div id="meltingResultBox" class="result-box">
+                        <div class="result-row">
+                            <span id="lblAddPalo" class="result-label" data-i18n="Add_Palo">Add Palo</span>
+                            <span id="txtAddPalo" class="result-value">0.000 G</span>
+                        </div>
+                        <div class="result-row">
+                            <span id="lblFinalWeight" class="result-label" data-i18n="final_weight">Final Weight</span>
+                            <span id="txtFinalWeight" class="result-value">0.000 G</span>
+                        </div>
+                    </div>
+
+                    <div class="form-actions-row">
+                        <button id="btnMeltingCalc" class="btn-primary" data-i18n="calculate">CALCULATE</button>
+                        <button id="btnMeltingClear" class="btn-clear" data-i18n="lblClear">Clear all</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             3. Melting History Screen (MeltingHistoryActivity)
+             ========================================================================== -->
+        <section id="screen-melting-history" class="screen">
+            <header class="toolbar has-bg">
+                <button class="toolbar-btn" data-nav-back aria-label="Back">
+                    <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                </button>
+                <h2 class="toolbar-title" data-i18n="lblHistory">History</h2>
+                <div style="width: 44px;"></div>
+            </header>
+
+            <div class="screen-content">
+                <div id="meltingHistoryList" class="history-list"></div>
+                <div id="meltingNoData" class="no-data" style="display: none;">
+                    <svg viewBox="0 0 24 24"><path d="M13,3c-4.97,0 -9,4.03 -9,9L1,12l3.89,3.89 0.07,0.14L9,12L6,12c0,-3.87 3.13,-7 7,-7s7,3.13 7,7 -3.13,7 -7,7c-1.93,0 -3.68,-0.79 -4.94,-2.06l-1.42,1.42C8.27,19.99 10.51,21 13,21c4.97,0 9,-4.03 9,-9s-4.03,-9 -9,-9z"/></svg>
+                    <p data-i18n="lblHistoryNotFound">History not found!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             4. Jewellery Cost Screen (JewelleryCostActivity)
+             ========================================================================== -->
+        <section id="screen-jewellery-cost" class="screen">
+            <img src="assets/images/dashboard_background.png" alt="" class="bg-decor tint-blue">
+            <header class="toolbar">
+                <button class="toolbar-btn" data-nav-back aria-label="Back">
+                    <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                </button>
+                <button class="toolbar-btn history-pill" data-navigate="#/jewellery-history" aria-label="History">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M13,3c-4.97,0 -9,4.03 -9,9L1,12l3.89,3.89 0.07,0.14L9,12L6,12c0,-3.87 3.13,-7 7,-7s7,3.13 7,7 -3.13,7 -7,7c-1.93,0 -3.68,-0.79 -4.94,-2.06l-1.42,1.42C8.27,19.99 10.51,21 13,21c4.97,0 9,-4.03 9,-9s-4.03,-9 -9,-9zM12,8v5l4.28,2.54 0.72,-1.21 -3.5,-2.08L13.5,8L12,8z"/></svg>
+                </button>
+            </header>
+
+            <div class="screen-content">
+                <div class="subscreen-heading">
+                    <h2 class="subscreen-title" data-i18n="title_cost">Jewellery Cost Control</h2>
+                </div>
+
+                <div class="form-card">
+                    <div class="form-inputs-grid costing-inputs">
+                        <div class="outline-group">
+                            <input type="text" id="txtCostItemName" placeholder=" " maxlength="25" autocomplete="off">
+                            <label data-i18n="lblItemName">Item name</label>
+                        </div>
+
+                        <div class="outline-group">
+                            <input type="number" step="any" id="txtCostGoldWeight" placeholder=" " autocomplete="off">
+                            <label data-i18n="lblGoldWeight">Gold Weight</label>
+                        </div>
+
+                        <div class="outline-group">
+                            <input type="number" step="any" id="txtCostADStone" placeholder=" " autocomplete="off">
+                            <label data-i18n="lblADStone">AD Stone</label>
+                        </div>
+
+                        <div class="outline-group">
+                            <input type="number" step="any" id="txtCostMelting" placeholder=" " autocomplete="off">
+                            <label data-i18n="lblMelting">Melting</label>
+                        </div>
+
+                        <div class="outline-group clickable">
+                            <input type="text" id="txtCostCastingExpenses" placeholder=" " readonly>
+                            <label data-i18n="lblCastingExpenses">Casting other expenses</label>
+                        </div>
+                    </div>
+
+                    <!-- Result Box -->
+                    <div id="costResultBox" class="result-box">
+                        <div class="result-row">
+                            <span class="result-label" data-i18n="lblFineGold">Fine Gold</span>
+                            <span id="txtCostFineOutput" class="result-value">0.000</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="result-label" data-i18n="lblJewelleryCosting">Jewellery Costing</span>
+                            <span id="txtCostJewelleryOutput" class="result-value">0.000</span>
+                        </div>
+                    </div>
+
+                    <div class="form-actions-row">
+                        <button id="btnCostCalc" class="btn-primary" data-i18n="calculate">CALCULATE</button>
+                        <button id="btnCostClear" class="btn-clear" data-i18n="lblClear">Clear all</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             5. Jewellery Cost History Screen (JewelleryHistoryActivity)
+             ========================================================================== -->
+        <section id="screen-jewellery-history" class="screen">
+            <header class="toolbar has-bg">
+                <button class="toolbar-btn" data-nav-back aria-label="Back">
+                    <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                </button>
+                <h2 class="toolbar-title" data-i18n="lblHistory">History</h2>
+                <div style="width: 44px;"></div>
+            </header>
+
+            <div class="screen-content">
+                <div id="jewelleryHistoryList" class="history-list"></div>
+                <div id="jewelleryNoData" class="no-data" style="display: none;">
+                    <svg viewBox="0 0 24 24"><path d="M13,3c-4.97,0 -9,4.03 -9,9L1,12l3.89,3.89 0.07,0.14L9,12L6,12c0,-3.87 3.13,-7 7,-7s7,3.13 7,7 -3.13,7 -7,7c-1.93,0 -3.68,-0.79 -4.94,-2.06l-1.42,1.42C8.27,19.99 10.51,21 13,21c4.97,0 9,-4.03 9,-9s-4.03,-9 -9,-9z"/></svg>
+                    <p data-i18n="lblHistoryNotFound">History not found!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             6. Settings Screen (SettingsActivity)
+             ========================================================================== -->
+        <section id="screen-settings" class="screen">
+            <header class="toolbar has-bg">
+                <button class="toolbar-btn" data-nav-back aria-label="Back">
+                    <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                </button>
+                <h2 class="toolbar-title" data-i18n="mnuSettings">Settings</h2>
+                <div style="width: 44px;"></div>
+            </header>
+
+            <div class="screen-content">
+                <div class="settings-menu">
+                    <div class="settings-item" id="layoutChooseLanguage">
+                        <div>
+                            <div class="settings-item-title" data-i18n="title_setting_display_wallpaper">Choose Language</div>
+                            <div class="settings-item-subtitle" id="lblLanguageOption">English</div>
+                        </div>
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="#94A3B8"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+                    </div>
+
+                    <div class="settings-item" id="btn_about">
+                        <div>
+                            <div class="settings-item-title" data-i18n="title_setting_about">About app</div>
+                            <div class="settings-item-subtitle" data-i18n="sub_title_setting_about">App info & build version</div>
+                        </div>
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="#94A3B8"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+                    </div>
+
+                    <div class="settings-item" id="btn_privacy_policy">
+                        <div>
+                            <div class="settings-item-title" data-i18n="title_setting_privacy">Privacy Policy</div>
+                            <div class="settings-item-subtitle" data-i18n="sub_title_setting_privacy">App Terms & Policies</div>
+                        </div>
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="#94A3B8"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+                    </div>
+
+                    <div class="settings-item" id="btn_rate">
+                        <div>
+                            <div class="settings-item-title" data-i18n="title_setting_rate">Rate Us</div>
+                            <div class="settings-item-subtitle" data-i18n="sub_title_setting_rate">Give your rating and review for the app</div>
+                        </div>
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="#94A3B8"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+                    </div>
+
+                    <div class="settings-item" id="btn_share">
+                        <div>
+                            <div class="settings-item-title" data-i18n="title_setting_share">Share app</div>
+                            <div class="settings-item-subtitle" data-i18n="sub_title_setting_share">Invite your friend to share this app</div>
+                        </div>
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="#94A3B8"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             7. About Us Screen (AboutUsActivity)
+             ========================================================================== -->
+        <section id="screen-about" class="screen">
+            <header class="toolbar has-bg">
+                <button class="toolbar-btn" data-nav-back aria-label="Back">
+                    <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                </button>
+                <h2 class="toolbar-title" data-i18n="about">About</h2>
+                <div style="width: 44px;"></div>
+            </header>
+
+            <div class="screen-content">
+                <!-- App Info Header Card -->
+                <div class="about-header-card">
+                    <img src="assets/images/ic_launcher.png" alt="Logo">
+                    <div>
+                        <h3 style="font-size: 18px; font-weight: 700; color: #1E293B;" data-i18n="app_name">My Gold Melting</h3>
+                        <p style="font-size: 13px; color: #64748B;" data-i18n="lblPoweredBy">Developed by: Evostackr</p>
+                    </div>
+                </div>
+
+                <!-- Version Card -->
+                <div class="about-item-card">
+                    <svg class="about-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M11,17h2v-6h-2v6zM12,2C6.48,2 2,6.48 2,12s4.48,10 10,10 10,-4.48 10,-10S17.52,2 12,2zM12,20c-4.41,0 -8,-3.59 -8,-8s3.59,-8 8,-8 8,3.59 8,8 -3.59,8 -8,8zM11,9h2L13,7h-2v2z"/></svg>
+                    <div class="about-divider"></div>
+                    <div>
+                        <div style="font-size: 12px; color: var(--color-about-text);" data-i18n="version">Version</div>
+                        <div style="font-size: 14px; font-weight: 700; color: var(--color-about-title);">1.0.0</div>
+                    </div>
+                </div>
+
+                <!-- Company / Author Card -->
+                <div class="about-item-card">
+                    <svg class="about-icon" viewBox="0 0 1000 1000"><path fill="currentColor" d="M643.4,540.1c84.4,-49.4 141.2,-140.7 141.2,-245.5C784.6,137.4 657.2,10 500,10c-157.2,0 -284.6,127.4 -284.6,284.6c0,104.8 56.8,196.2 141.2,245.5c-174,59.6 -299.3,224.2 -299.3,418.4c0,17.4 14.1,31.5 31.5,31.5c17.4,0 31.5,-14.1 31.5,-31.5h0.2C120.5,748.9 290.4,579 500,579c209.6,0 379.5,169.9 379.5,379.5h0.2c0,17.4 14.1,31.5 31.5,31.5c17.4,0 31.5,-14.1 31.5,-31.5C942.6,764.3 817.4,599.7 643.4,540.1zM500,515.9c-10.1,0 -19.9,0.9 -29.8,1.5c-108.1,-14.9 -191.5,-108.8 -191.5,-222.8c0,-124.3 99.1,-225.1 221.3,-225.1c122.2,0 221.3,100.8 221.3,225.1c0,114 -83.4,208 -191.5,222.8C519.9,516.7 510.1,515.9 500,515.9z"/></svg>
+                    <div class="about-divider"></div>
+                    <div>
+                        <div style="font-size: 12px; color: var(--color-about-text);" data-i18n="company">Author</div>
+                        <div style="font-size: 14px; font-weight: 700; color: var(--color-about-title);">Ujwal Anand (Evostackr)</div>
+                    </div>
+                </div>
+
+                <!-- Email Card -->
+                <div class="about-item-card" onclick="window.location.href='mailto:support@evostackr.in'">
+                    <svg class="about-icon" viewBox="0 0 1000 1000"><path fill="currentColor" d="M10,147.2c326.7,0 653.3,0 980,0v705.5c-326.7,0 -653.3,0 -980,0V147.2L10,147.2zM49.2,186.4c0.1,16.3 0,32.6 0,48.8C176.7,346.9 304.7,458 432.4,569.5c18.5,16.7 42.5,28 67.7,28.3c25.1,-0.4 49,-11.6 67.5,-28.3c127.7,-111.4 255.7,-222.6 383.2,-334.2c0.1,-16.3 0,-32.6 0,-48.9C650.3,186.4 349.7,186.4 49.2,186.4zM49.1,715c85.7,-67.9 171.5,-135.6 257.2,-203.5c-85.7,-74.8 -171.6,-149.4 -257.2,-224.3C49.2,429.8 49.2,572.4 49.1,715zM693.6,511.5c85.7,67.8 171.6,135.5 257.2,203.4c0,-142.6 -0.1,-285.1 0,-427.7C865.2,362.1 779.4,436.8 693.6,511.5zM58.7,757.3c-3.1,2.8 -7.3,4.7 -9.4,8.4c-0.4,15.9 -0.1,31.9 -0.1,47.8c300.5,0 601.1,0 901.6,0c0.1,-14 -0.1,-27.9 0.1,-41.9c-0.3,-2.9 0.8,-6.6 -2.1,-8.4c-95,-75.2 -190.2,-150.3 -285.2,-225.5c-23.6,20.3 -47,40.9 -70.5,61.3c-18.2,15.8 -39.6,28.7 -63.4,33.9c-30.1,8.5 -62.8,2.8 -90.3,-11.3c-18.1,-9 -33,-22.8 -48.1,-36c-18.3,-16 -36.6,-31.9 -54.9,-47.9C243.8,610.9 151.3,684.2 58.7,757.3z"/></svg>
+                    <div class="about-divider"></div>
+                    <div>
+                        <div style="font-size: 12px; color: var(--color-about-text);" data-i18n="email">Email</div>
+                        <div style="font-size: 14px; font-weight: 700; color: var(--color-about-title);">support@evostackr.in</div>
+                    </div>
+                </div>
+
+                <!-- Website Card -->
+                <div class="about-item-card" onclick="window.open('https://www.evostackr.in/', '_blank')">
+                    <svg class="about-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12,1L3,5v6c0,5.55 3.84,10.74 9,12c5.16,-1.26 9,-6.45 9,-12V5L12,1zM14.5,12.59l0.9,3.88L12,14.42l-3.4,2.05l0.9,-3.87l-3,-2.59l3.96,-0.34L12,6.02l1.54,3.64L17.5,10L14.5,12.59z"/></svg>
+                    <div class="about-divider"></div>
+                    <div>
+                        <div style="font-size: 12px; color: var(--color-about-text);" data-i18n="website">Website</div>
+                        <div style="font-size: 14px; font-weight: 700; color: var(--color-about-title);">https://www.evostackr.in/</div>
+                    </div>
+                </div>
+
+                <!-- Contact Card -->
+                <div class="about-item-card" onclick="window.location.href='tel:+916202850596'">
+                    <svg class="about-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M20.01,15.38c-1.23,0 -2.42,-0.2 -3.53,-0.56 -0.35,-0.12 -0.74,-0.03 -1.01,0.24l-1.57,1.97c-2.83,-1.35 -5.48,-3.9 -6.89,-6.83l1.95,-1.66c0.27,-0.28 0.35,-0.67 0.24,-1.02 -0.37,-1.11 -0.56,-2.3 -0.56,-3.53 0,-0.54 -0.45,-0.99 -0.99,-0.99H4.19C3.65,3 3,3.24 3,3.99 3,13.28 10.73,21 20.01,21c0.71,0 0.99,-0.63 0.99,-1.18v-3.45c0,-0.54 -0.45,-0.99 -0.99,-0.99z"/></svg>
+                    <div class="about-divider"></div>
+                    <div>
+                        <div style="font-size: 12px; color: var(--color-about-text);" data-i18n="contact">Contact</div>
+                        <div style="font-size: 14px; font-weight: 700; color: var(--color-about-title);">+91 62028 50596</div>
+                    </div>
+                </div>
+
+                <!-- HTML Description Card (AppConfig.ABOUT_APP) -->
+                <div class="about-card-desc">
+                    <h4 data-i18n="about">About</h4>
+                    <p>The greatest application for goldsmiths to manage melting and determine the purity of gold through applications is this one.</p>
+                    <ul>
+                        <li>Multiple calculations made simultaneously</li>
+                        <li>Simple-to-use calculator</li>
+                        <li>Enter the total gram and melting value to determine your total melting.</li>
+                        <li>Fine Gold Calculation</li>
+                        <li>Multiple melting support</li>
+                        <li>Costing simplified</li>
+                        <li>Management of sub-loans and expenses</li>
+                        <li>Calculations can be performed without an internet connection.</li>
+                        <li>Diminished Memory</li>
+                        <li>User-Friendliest</li>
+                    </ul>
+                    <p>Evostackr designs and develops Melting Management and goldsmith software applications.</p>
+                    <p style="margin-top: 8px;">If you require a custom application, please contact us using the provided email address or phone number. We also create custom applications.</p>
+                    <p style="margin-top: 8px;">Developer: <b>Ujwal Anand</b><br>Email address: <b>support@evostackr.in</b><br>Contact: <b>+91 62028 50596</b><br>You can visit: <b>https://www.evostackr.in/</b></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             8. Privacy Policy Screen (WebViewActivity)
+             ========================================================================== -->
+        <section id="screen-privacy" class="screen">
+            <header class="toolbar has-bg">
+                <button class="toolbar-btn" data-nav-back aria-label="Back">
+                    <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                </button>
+                <h2 class="toolbar-title" data-i18n="title_setting_privacy">Privacy Policy</h2>
+                <div style="width: 44px;"></div>
+            </header>
+
+            <div class="screen-content">
+                <div class="privacy-policy-card">
+                    <h3>Privacy Policy</h3>
+                    <p class="privacy-subtitle" style="font-size: 13px; color: #64748B; margin-bottom: 20px;">Last Updated: October 2026 | Effective Date: Immediately</p>
+
+                    <p>Welcome to <strong>My Gold Melting</strong>. This application is designed, developed, and maintained by <strong>Evostackr</strong> (Developer: <strong>Ujwal Anand</strong>). We are dedicated to providing a secure, reliable, and privacy-respecting utility for goldsmiths, jewellers, and craftsmen.</p>
+
+                    <h4>1. Offline-First & Zero Data Collection</h4>
+                    <p>My Gold Melting operates on an offline-first architecture. We do <strong>not</strong> collect, harvest, track, sell, or transmit any personal information, contact lists, financial details, or device identifiers.</p>
+
+                    <h4>2. Local Storage & Calculations Privacy</h4>
+                    <p>All calculations—including gold weights, touche purity, output touche, palo additions, fine gold amounts, and jewellery casting expenses—are processed and retained exclusively on your device using local browser storage (IndexedDB / LocalStorage). Your calculations never leave your device.</p>
+
+                    <h4>3. Permissions & Device Access</h4>
+                    <p>This application does not request access to sensitive device permissions like your camera, microphone, contacts, location, or file storage. It requires only standard browser runtime access.</p>
+
+                    <h4>4. Third-Party Services</h4>
+                    <p>We do not integrate any third-party advertising SDKs, tracking pixels, or data-mining brokers. Typography assets are loaded via Google Fonts with privacy protection.</p>
+
+                    <h4>5. Data Ownership and Deletion</h4>
+                    <p>You own all your calculation and history records. You can delete individual records or clear your entire calculation history at any time from within the History screen.</p>
+
+                    <h4>6. Security</h4>
+                    <p>Because all data remains local to your device or browser session, your calculations are protected by your device's security and browser sandboxing.</p>
+
+                    <h4>7. Changes to This Policy</h4>
+                    <p>We may update this Privacy Policy from time to time. Any changes will be posted directly within the application and on our official website.</p>
+
+                    <h4>8. Contact Us</h4>
+                    <p>If you have any questions, suggestions, or concerns regarding this Privacy Policy, please reach out to us:</p>
+                    <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 16px; margin-top: 12px;">
+                        <p style="margin-bottom: 6px;"><strong>Company:</strong> Evostackr</p>
+                        <p style="margin-bottom: 6px;"><strong>Developer:</strong> Ujwal Anand</p>
+                        <p style="margin-bottom: 6px;"><strong>Email:</strong> <a href="mailto:support@evostackr.in" style="color: #2196F3; text-decoration: none; font-weight: 600;">support@evostackr.in</a></p>
+                        <p style="margin-bottom: 6px;"><strong>Website:</strong> <a href="https://www.evostackr.in/" target="_blank" style="color: #2196F3; text-decoration: none; font-weight: 600;">https://www.evostackr.in/</a></p>
+                        <p style="margin-bottom: 0;"><strong>Phone:</strong> <a href="tel:+916202850596" style="color: #2196F3; text-decoration: none; font-weight: 600;">+91 62028 50596</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div><!-- .screens-wrapper -->
+</div><!-- .app-viewport -->
+
+<!-- ==========================================================================
+     MODALS & DIALOGS
+     ========================================================================== -->
+
+<!-- Modal 1: Casting Other Expenses Bottom Sheet (dialog_jewellery_expenses) -->
+<div id="modalExpenses" class="modal-backdrop">
+    <div class="bottom-sheet">
+        <div class="sheet-handle"></div>
+        <div class="sheet-header">
+            <h3 class="sheet-title" data-i18n="lblCastingExpenses">Casting other expenses</h3>
+        </div>
+        <div class="sheet-body">
+            <div class="outline-group clickable">
+                <input type="text" id="txtExpAlloy" placeholder=" " readonly>
+                <label data-i18n="lblExpAlloy">Alloy Loss</label>
+            </div>
+            <div class="outline-group">
+                <input type="number" step="any" id="txtExpCastingLoss" placeholder=" ">
+                <label data-i18n="lblExpCasting">Casting Loss</label>
+            </div>
+            <div class="outline-group">
+                <input type="number" step="any" id="txtExpFailingLoss" placeholder=" ">
+                <label data-i18n="lblExpFailing">Failing Loss</label>
+            </div>
+            <div class="outline-group">
+                <input type="number" step="any" id="txtExpSittingLoss" placeholder=" ">
+                <label data-i18n="lblExpSitting">Sitting Loss</label>
+            </div>
+            <div class="outline-group">
+                <input type="number" step="any" id="txtExpPolishingLoss" placeholder=" ">
+                <label data-i18n="lblExpPolishing">Polishing Loss</label>
+            </div>
+            <div class="outline-group clickable">
+                <input type="text" id="txtExpStoneBills" placeholder=" " readonly>
+                <label data-i18n="lblExpStoneBill">Stone Bill Loss</label>
+            </div>
+            <div class="outline-group clickable">
+                <input type="text" id="txtExpGilletLoss" placeholder=" " readonly>
+                <label data-i18n="lblExpGillet">Gillet Loss</label>
+            </div>
+            <div class="outline-group clickable">
+                <input type="text" id="txtExpRhodiumLoss" placeholder=" " readonly>
+                <label data-i18n="lblExpRhodium">Rhodium Loss</label>
+            </div>
+            <div class="outline-group">
+                <input type="number" step="any" id="txtExpLathiyaPechLoss" placeholder=" ">
+                <label data-i18n="lblExpLathiya">Lathiya Pech Loss</label>
+            </div>
+            <div class="outline-group">
+                <input type="number" step="any" id="txtExpExtraCost" placeholder=" ">
+                <label data-i18n="lblExpExtraLoss">Extra Loss</label>
+            </div>
+        </div>
+        <div class="sheet-footer">
+            <button id="btnExpClear" class="btn-clear" style="flex: 1; margin: 0;" data-i18n="lblClear">Clear all</button>
+            <button id="btnExpSubmit" class="btn-primary" style="flex: 1; margin: 0; background-color: var(--color-primary);" data-i18n="lblSubmit">Submit</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 2: Alloy Loss Sub-Modal (dialog_loss_alloy) -->
+<div id="modalLossAlloy" class="modal-backdrop">
+    <div class="center-modal">
+        <h3 class="modal-title" style="text-align: center; color: var(--color-primary-dark);" data-i18n="lblExpAlloy">Alloy Loss</h3>
+        <div class="outline-group">
+            <input type="number" step="any" id="txtALWeight" placeholder=" ">
+            <label data-i18n="lblAlloyWeight">Alloy Weight</label>
+        </div>
+        <div class="outline-group">
+            <input type="number" step="any" id="txtALRate" placeholder=" ">
+            <label data-i18n="lblAlloyRate">Alloy Rate</label>
+        </div>
+        <div class="outline-group">
+            <input type="number" step="any" id="txtALGoldRate" placeholder=" ">
+            <label data-i18n="lblGoldRate">Gold Rate</label>
+        </div>
+        <div class="outline-group">
+            <input type="number" step="any" id="txtALMelting" placeholder=" ">
+            <label data-i18n="lblMelting">Melting</label>
+        </div>
+        <div style="text-align: center; margin: 10px 0;">
+            <div style="font-size: 11px; color: var(--color-grey);" data-i18n="lblResult">Result</div>
+            <div id="lblAlloyResult" style="font-size: 24px; font-weight: 700; color: var(--color-primary-dark);">0.000</div>
+        </div>
+        <div class="modal-actions">
+            <button id="btnAlloyCancel" class="modal-btn" data-i18n="dialog_option_cancel">Cancel</button>
+            <button id="btnAlloyOk" class="modal-btn primary" data-i18n="dialog_option_ok">OK</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 3: Stone Bills Loss Sub-Modal (dialog_loss_stone_bills) -->
+<div id="modalLossStone" class="modal-backdrop">
+    <div class="center-modal">
+        <h3 class="modal-title" style="text-align: center; color: var(--color-primary-dark);" data-i18n="lblExpStoneBill">Stone Bill Loss</h3>
+        <div class="outline-group">
+            <input type="number" step="any" id="txtSADRate" placeholder=" ">
+            <label data-i18n="lblAdRate">AD Rs.</label>
+        </div>
+        <div class="outline-group">
+            <input type="number" step="any" id="txtSGoldRate" placeholder=" ">
+            <label data-i18n="lblGoldRate">Gold Rate</label>
+        </div>
+        <div class="outline-group">
+            <input type="number" step="any" id="txtSMelting" placeholder=" ">
+            <label data-i18n="lblMelting">Melting</label>
+        </div>
+        <div style="text-align: center; margin: 10px 0;">
+            <div style="font-size: 11px; color: var(--color-grey);" data-i18n="lblResult">Result</div>
+            <div id="lblStoneResult" style="font-size: 24px; font-weight: 700; color: var(--color-primary-dark);">0.000</div>
+        </div>
+        <div class="modal-actions">
+            <button id="btnStoneCancel" class="modal-btn" data-i18n="dialog_option_cancel">Cancel</button>
+            <button id="btnStoneOk" class="modal-btn primary" data-i18n="dialog_option_ok">OK</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 4: Gillet Loss Sub-Modal (dialog_loss_gillet) -->
+<div id="modalLossGillet" class="modal-backdrop">
+    <div class="center-modal">
+        <h3 class="modal-title" style="text-align: center; color: var(--color-primary-dark);" data-i18n="lblExpGillet">Gillet Loss</h3>
+        <div class="outline-group">
+            <input type="number" step="any" id="txtGGoldWeight" placeholder=" ">
+            <label data-i18n="lblGoldWeight">Gold Weight</label>
+        </div>
+        <div class="outline-group">
+            <input type="number" step="any" id="txtGGilletRate" placeholder=" ">
+            <label data-i18n="lblGilletRate">Gillet Rate</label>
+        </div>
+        <div class="outline-group">
+            <input type="number" step="any" id="txtGGoldRate" placeholder=" ">
+            <label data-i18n="lblGoldRate">Gold Rate</label>
+        </div>
+        <div class="outline-group">
+            <input type="number" step="any" id="txtGMelting" placeholder=" ">
+            <label data-i18n="lblMelting">Melting</label>
+        </div>
+        <div style="text-align: center; margin: 10px 0;">
+            <div style="font-size: 11px; color: var(--color-grey);" data-i18n="lblResult">Result</div>
+            <div id="lblGilletResult" style="font-size: 24px; font-weight: 700; color: var(--color-primary-dark);">0.000</div>
+        </div>
+        <div class="modal-actions">
+            <button id="btnGilletCancel" class="modal-btn" data-i18n="dialog_option_cancel">Cancel</button>
+            <button id="btnGilletOk" class="modal-btn primary" data-i18n="dialog_option_ok">OK</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 5: Rhodium Loss Sub-Modal (dialog_loss_rodium) -->
+<div id="modalLossRhodium" class="modal-backdrop">
+    <div class="center-modal">
+        <h3 class="modal-title" style="text-align: center; color: var(--color-primary-dark);" data-i18n="lblExpRhodium">Rhodium Loss</h3>
+        <div class="outline-group">
+            <input type="number" step="any" id="txtRPair" placeholder=" ">
+            <label data-i18n="lblItemPair">Items/Pair/Piece</label>
+        </div>
+        <div class="outline-group">
+            <input type="number" step="any" id="txtRRate" placeholder=" ">
+            <label data-i18n="lblRate">Rate</label>
+        </div>
+        <div class="outline-group">
+            <input type="number" step="any" id="txtRGoldRate" placeholder=" ">
+            <label data-i18n="lblGoldRate">Gold Rate</label>
+        </div>
+        <div class="outline-group">
+            <input type="number" step="any" id="txtRMelting" placeholder=" ">
+            <label data-i18n="lblMelting">Melting</label>
+        </div>
+        <div style="text-align: center; margin: 10px 0;">
+            <div style="font-size: 11px; color: var(--color-grey);" data-i18n="lblResult">Result</div>
+            <div id="lblRhodiumResult" style="font-size: 24px; font-weight: 700; color: var(--color-primary-dark);">0.000</div>
+        </div>
+        <div class="modal-actions">
+            <button id="btnRhodiumCancel" class="modal-btn" data-i18n="dialog_option_cancel">Cancel</button>
+            <button id="btnRhodiumOk" class="modal-btn primary" data-i18n="dialog_option_ok">OK</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 6: Jewellery History Detail Popup (dialog_history_expenses) -->
+<div id="modalHistoryDetail" class="modal-backdrop">
+    <div class="bottom-sheet">
+        <div class="sheet-handle"></div>
+        <div class="sheet-header">
+            <h3 id="txtHisItemName" class="sheet-title">Item Name</h3>
+        </div>
+        <div class="sheet-body">
+            <div class="history-detail-grid">
+                <div class="history-detail-item">
+                    <span class="history-detail-label" data-i18n="lblGoldWeight">Gold Weight</span>
+                    <span id="txtHisGoldWeight" class="history-detail-val">0.000</span>
+                </div>
+                <div class="history-detail-item">
+                    <span class="history-detail-label" data-i18n="lblGoldRate">Gold Rate</span>
+                    <span id="txtHisGoldRate" class="history-detail-val">0.000</span>
+                </div>
+                <div class="history-detail-item">
+                    <span class="history-detail-label" data-i18n="lblMelting">Melting</span>
+                    <span id="txtHisMelting" class="history-detail-val">0.000</span>
+                </div>
+
+                <div class="history-detail-item">
+                    <span class="history-detail-label" data-i18n="lblADStone">AD Stone</span>
+                    <span id="txtHisADStone" class="history-detail-val">0.000</span>
+                </div>
+                <div class="history-detail-item">
+                    <span class="history-detail-label" data-i18n="lblExpAlloy">Alloy Loss</span>
+                    <span id="txtHisAlloy" class="history-detail-val">0.000</span>
+                </div>
+                <div class="history-detail-item">
+                    <span class="history-detail-label" data-i18n="lblExpCasting">Casting Loss</span>
+                    <span id="txtHisCasting" class="history-detail-val">0.000</span>
+                </div>
+
+                <div class="history-detail-item">
+                    <span class="history-detail-label" data-i18n="lblExpFailing">Failing Loss</span>
+                    <span id="txtHisFailing" class="history-detail-val">0.000</span>
+                </div>
+                <div class="history-detail-item">
+                    <span class="history-detail-label" data-i18n="lblExpSitting">Sitting Loss</span>
+                    <span id="txtHisSitting" class="history-detail-val">0.000</span>
+                </div>
+                <div class="history-detail-item">
+                    <span class="history-detail-label" data-i18n="lblExpPolishing">Polishing Loss</span>
+                    <span id="txtHisPolishing" class="history-detail-val">0.000</span>
+                </div>
+
+                <div class="history-detail-item">
+                    <span class="history-detail-label" data-i18n="lblExpStoneBill">Stone Bill</span>
+                    <span id="txtHisStoneBill" class="history-detail-val">0.000</span>
+                </div>
+                <div class="history-detail-item">
+                    <span class="history-detail-label" data-i18n="lblExpGillet">Gillet Loss</span>
+                    <span id="txtHisGillet" class="history-detail-val">0.000</span>
+                </div>
+                <div class="history-detail-item">
+                    <span class="history-detail-label" data-i18n="lblExpRhodium">Rhodium Loss</span>
+                    <span id="txtHisRhodium" class="history-detail-val">0.000</span>
+                </div>
+
+                <div class="history-detail-item">
+                    <span class="history-detail-label" data-i18n="lblExpLathiya">Lathiya Pech</span>
+                    <span id="txtHisLathiya" class="history-detail-val">0.000</span>
+                </div>
+                <div class="history-detail-item">
+                    <span class="history-detail-label" data-i18n="lblExpExtraLoss">Extra Loss</span>
+                    <span id="txtHisExtra" class="history-detail-val">0.000</span>
+                </div>
+                <div class="history-detail-item">
+                    <span class="history-detail-label" data-i18n="lblTotalLoss">Total Loss</span>
+                    <span id="txtHisTotalLoss" class="history-detail-val" style="color: var(--color-primary); font-weight: 700;">0.000</span>
+                </div>
+            </div>
+
+            <div style="border-top: 1px solid #E2E8F0; padding-top: 14px; margin-top: 8px; display: grid; grid-template-columns: 1fr 1fr; text-align: center;">
+                <div>
+                    <div style="font-size: 12px; color: var(--color-grey);" data-i18n="lblFineGold">Fine Gold</div>
+                    <div id="txtResFineGold" style="font-size: 22px; font-weight: 700; color: var(--color-black);">0.000</div>
+                </div>
+                <div>
+                    <div style="font-size: 12px; color: var(--color-grey);" data-i18n="lblJewelleryCosting">Jewellery Costing</div>
+                    <div id="txtResJewelleryCost" style="font-size: 22px; font-weight: 700; color: var(--color-black);">0.000</div>
+                </div>
+            </div>
+        </div>
+        <div class="sheet-footer">
+            <button id="btnHisClose" class="btn-clear" style="flex: 1; margin: 0;" data-i18n="lblClose">Close</button>
+            <button id="btnHisShare" class="btn-primary" style="flex: 1; margin: 0; background-color: var(--color-primary);" data-i18n="lblShare">Share</button>
+            <button id="btnHisDelete" class="btn-primary" style="flex: 1; margin: 0; background-color: var(--color-red);" data-i18n="lblDelete">Delete</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 7: Confirm Dialog (Yes/No) -->
+<div id="modalConfirm" class="modal-backdrop">
+    <div class="center-modal">
+        <h3 id="modalConfirmTitle" class="modal-title">Delete</h3>
+        <p id="modalConfirmMsg" class="modal-msg">Do you wish to remove this information?</p>
+        <div class="modal-actions">
+            <button id="btnConfirmNo" class="modal-btn" data-i18n="dialog_option_no">No</button>
+            <button id="btnConfirmYes" class="modal-btn danger" data-i18n="dialog_option_yes">Yes</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 8: Language Selector Dialog -->
+<div id="modalLanguage" class="modal-backdrop">
+    <div class="center-modal">
+        <h3 class="modal-title" data-i18n="title_setting_display_wallpaper">Choose Language</h3>
+        <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px;">
+            <label class="radio-item">
+                <input type="radio" name="langOption" value="0">
+                <span data-i18n="lang_english">English</span>
+            </label>
+            <label class="radio-item">
+                <input type="radio" name="langOption" value="1">
+                <span data-i18n="lang_hindi">Hindi (हिंदी)</span>
+            </label>
+            <label class="radio-item">
+                <input type="radio" name="langOption" value="2">
+                <span data-i18n="lang_bengali">Bengali (বাংলা)</span>
+            </label>
+        </div>
+        <div class="modal-actions">
+            <button id="btnLangCancel" class="modal-btn" data-i18n="dialog_option_cancel">Cancel</button>
+            <button id="btnLangOk" class="modal-btn primary" data-i18n="dialog_option_ok">OK</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 9: Rate Us Modal -->
+<div id="modalRate" class="modal-backdrop">
+    <div class="center-modal" style="text-align: center;">
+        <h3 class="modal-title" data-i18n="title_setting_rate">Rate Us</h3>
+        <p class="modal-msg" data-i18n="sub_title_setting_rate">Give your rating and review for the app</p>
+        <div style="font-size: 32px; color: #F59E0B; margin-bottom: 20px; cursor: pointer;">
+            ★★★★★
+        </div>
+        <button id="btnRateClose" class="btn-primary" style="margin: 0;" data-i18n="dialog_option_ok">OK</button>
+    </div>
+</div>
+
+<!-- Toast Message Container -->
+<div id="toastMsg" class="toast-msg"></div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
