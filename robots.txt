@@ -11,6 +11,11 @@ Allow: /rss.xml
 Allow: /robots.txt
 Allow: /llms.txt
 Allow: /llms-full.txt
+Allow: /gold-melting-calculator
+Allow: /jewellery-costing-calculator
+Allow: /about
+Allow: /faq
+Allow: /privacy-policy
 Allow: /gold-melting-calculator.html
 Allow: /jewellery-costing-calculator.html
 Allow: /about.html

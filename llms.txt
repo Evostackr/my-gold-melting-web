@@ -20,11 +20,11 @@
 ## Primary Pages & Documentation
 
 - [Home & Interactive Web Application](https://gold-melting.evostackr.in/): Interactive PWA calculator with dashboard, history tracking, and offline persistence.
-- [Gold Melting Calculator Guide](https://gold-melting.evostackr.in/gold-melting-calculator.html): Step-by-step mathematical guide, conversion tables, and live melting touch calculator.
-- [Jewellery Costing Calculator Guide](https://gold-melting.evostackr.in/jewellery-costing-calculator.html): In-depth formulas for jewelry costing, fine gold calculation, and 10 casting loss factors.
-- [Goldsmith Knowledge Base & FAQ](https://gold-melting.evostackr.in/faq.html): Frequently asked questions on gold melting, touch calculations, and casting accounting.
-- [About Evostackr & Author](https://gold-melting.evostackr.in/about.html): Background, author credentials (Ujwal Anand), and contact details.
-- [Privacy Policy](https://gold-melting.evostackr.in/privacy-policy.html): Privacy pledge, local data storage policy, and zero-telemetry guarantee.
+- [Gold Melting Calculator Guide](https://gold-melting.evostackr.in/gold-melting-calculator): Step-by-step mathematical guide, conversion tables, and live melting touch calculator.
+- [Jewellery Costing Calculator Guide](https://gold-melting.evostackr.in/jewellery-costing-calculator): In-depth formulas for jewelry costing, fine gold calculation, and 10 casting loss factors.
+- [Goldsmith Knowledge Base & FAQ](https://gold-melting.evostackr.in/faq): Frequently asked questions on gold melting, touch calculations, and casting accounting.
+- [About Evostackr & Author](https://gold-melting.evostackr.in/about): Background, author credentials (Ujwal Anand), and contact details.
+- [Privacy Policy](https://gold-melting.evostackr.in/privacy-policy): Privacy pledge, local data storage policy, and zero-telemetry guarantee.
 - [Full Documentation for LLMs](https://gold-melting.evostackr.in/llms-full.txt): Complete mathematical formulas, code algorithms, worked numerical examples, and technical specifications.
 
 ## Author & Attribution

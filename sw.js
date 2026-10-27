@@ -1,8 +1,13 @@
-// My Gold Melting - Offline Service Worker (v2)
-const CACHE_NAME = 'gold-melting-v2';
+// My Gold Melting - Offline Service Worker (v3)
+const CACHE_NAME = 'gold-melting-v3';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
+  './gold-melting-calculator',
+  './jewellery-costing-calculator',
+  './about',
+  './faq',
+  './privacy-policy',
   './gold-melting-calculator.html',
   './jewellery-costing-calculator.html',
   './about.html',
