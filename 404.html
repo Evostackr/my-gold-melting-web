@@ -2,15 +2,107 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=index.html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting - My Gold Melting</title>
-    <script>
-        window.location.replace("index.html" + window.location.hash);
-    </script>
+    <meta name="theme-color" content="#2196F3">
+    <title>404 Page Not Found - My Gold Melting</title>
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" type="image/png" href="assets/images/ic_launcher.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            background-color: #F8FAFC;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 24px;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+        }
+        .error-card {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 20px;
+            padding: 40px 32px;
+            max-width: 520px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        .error-code {
+            font-size: 72px;
+            font-weight: 800;
+            color: #2196F3;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        .error-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #0F172A;
+            margin-bottom: 10px;
+        }
+        .error-desc {
+            font-size: 14px;
+            color: #64748B;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+        .error-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+        .error-link-item {
+            display: block;
+            padding: 12px 16px;
+            background: #F1F5F9;
+            border-radius: 8px;
+            color: #1E293B;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.15s, color 0.15s;
+        }
+        .error-link-item:hover {
+            background: #E2E8F0;
+            color: #2196F3;
+        }
+        .btn-home {
+            display: inline-block;
+            background: #2196F3;
+            color: #FFFFFF;
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.15s;
+        }
+        .btn-home:hover {
+            background: #1976D2;
+        }
+    </style>
 </head>
-<body style="font-family: sans-serif; text-align: center; padding: 50px 20px; background: #F0F0F1; color: #333;">
-    <h2>Redirecting to My Gold Melting...</h2>
-    <p>If you are not redirected automatically, <a href="index.html" style="color: #2196F3; font-weight: bold;">click here</a>.</p>
+<body>
+    <div class="error-card">
+        <div class="error-code">404</div>
+        <h1 class="error-title">Page Not Found</h1>
+        <p class="error-desc">The page or calculation route you are looking for does not exist or may have moved. You can return home or choose a tool below:</p>
+
+        <div class="error-links">
+            <a href="index.html" class="error-link-item">🏠 My Gold Melting Web App Dashboard</a>
+            <a href="gold-melting-calculator.html" class="error-link-item">⚖️ Gold Melting & Touch Purity Calculator</a>
+            <a href="jewellery-costing-calculator.html" class="error-link-item">💎 Jewellery Costing & Casting Loss Calculator</a>
+            <a href="faq.html" class="error-link-item">❓ Goldsmith Frequently Asked Questions</a>
+            <a href="about.html" class="error-link-item">ℹ️ About Evostackr</a>
+        </div>
+
+        <a href="index.html" class="btn-home">Back to Application</a>
+    </div>
 </body>
 </html>

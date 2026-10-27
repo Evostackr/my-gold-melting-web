@@ -1,0 +1,139 @@
+# My Gold Melting - Complete Technical & Mathematical Specification
+Version: 1.0.0
+Author: Ujwal Anand (Evostackr)
+Official Website: https://gold-melting.evostackr.in/
+Organization: Evostackr (https://www.evostackr.in/)
+Contact: support@evostackr.in | +91 62028 50596
+
+---
+
+## 1. Executive Summary & Purpose
+
+My Gold Melting is an offline-first precision utility developed for goldsmiths, bullion merchants, assayers, and jewelry manufacturers. It solves the two fundamental computational challenges in precious metal fabrication:
+1. **Gold Melting Purity (Touch / Touche)**: Calculating the weighted average purity of multi-batch metal melts and determining the exact amount of Palo (alloy) or pure Fine Gold required to hit a predetermined target touch.
+2. **Jewellery Costing & Casting Loss Management**: Computing the net fine gold requirement and pricing markup factoring in gross ornament weight, gemstone deductions (AD Stone), and 10 detailed manufacturing and casting loss expenses.
+
+---
+
+## 2. Core Mathematical Formulations
+
+### 2.1 Multi-Sample Gold Melting Calculation
+
+Given $N$ samples of gold or silver with weights $W = [w_1, w_2, \dots, w_n]$ (in grams) and corresponding touches $T = [t_1, t_2, \dots, t_n]$ (where touch represents purity percentage, e.g., 91.6 for 22K), and target output touch $T_{\text{target}}$:
+
+1. **Total Batch Weight**:
+   $$W_{\text{total}} = \sum_{i=1}^{n} w_i$$
+
+2. **Total Fine Gold Content (Pure Metal Weight)**:
+   $$W_{\text{fine\_content}} = \sum_{i=1}^{n} \frac{w_i \times t_i}{100}$$
+
+3. **Theoretical Target Weight at Desired Touch**:
+   $$W_{\text{target\_weight}} = \frac{W_{\text{fine\_content}}}{T_{\text{target}}} \times 100$$
+
+4. **Addition Decision Rule**:
+   - **Case A: Current purity is higher than target purity** ($W_{\text{target\_weight}} \ge W_{\text{total}}$):
+     You must dilute the melt by adding **Palo** (base alloy):
+     $$\text{Add Palo} = W_{\text{target\_weight}} - W_{\text{total}}$$
+     $$\text{Final Weight} = W_{\text{total}} + \text{Add Palo}$$
+
+   - **Case B: Current purity is lower than target purity** ($W_{\text{total}} > W_{\text{target\_weight}}$):
+     You must enrich the melt by adding pure **Fine Gold** ($100\%$ touch):
+     $$\text{Add Fine Gold} = \frac{(W_{\text{total}} - W_{\text{target\_weight}}) \times T_{\text{target}}}{100 - T_{\text{target}}}$$
+     $$\text{Final Weight} = W_{\text{total}} + \text{Add Fine Gold}$$
+
+---
+
+### 2.2 Worked Example: Gold Melting
+
+- **Input Weights**: 10.000g, 20.000g
+- **Input Touches**: 80.0%, 90.0%
+- **Target Output Touch**: 85.0%
+
+**Step 1: Compute Totals**:
+- $W_{\text{total}} = 10 + 20 = 30.000\text{g}$
+- $W_{\text{fine\_content}} = \frac{10 \times 80}{100} + \frac{20 \times 90}{100} = 8.000 + 18.000 = 26.000\text{g}$
+
+**Step 2: Compute Theoretical Weight**:
+- $W_{\text{target\_weight}} = \frac{26.000}{85.0} \times 100 = 30.588\text{g}$
+
+**Step 3: Evaluate Condition**:
+- Since $30.588 > 30.000$, we need to **Add Palo**:
+  $$\text{Add Palo} = 30.588 - 30.000 = 0.588\text{g}$$
+  $$\text{Final Weight} = 30.000 + 0.588 = 30.588\text{g}$$
+
+Result: Add **0.588g Palo** to achieve an exact **85.0 touch**.
+
+---
+
+### 2.3 Jewellery Costing Calculation
+
+When creating jewelry, the goldsmith inputs:
+- $W_{\text{gold}}$: Gross gold weight (g)
+- $W_{\text{ad\_stone}}$: American Diamond / gemstone weight (g)
+- $E_{\text{casting}}$: Sum of all casting and processing expenses (g equivalent)
+- $T_{\text{melt}}$: Melting purity percentage of the gold ornament (e.g., 91.6)
+
+**Formulas**:
+$$\text{Net Gold Subject to Melting} = W_{\text{gold}} - W_{\text{ad\_stone}} + E_{\text{casting}}$$
+$$\text{Fine Gold Equivalent} = \frac{\text{Net Gold Subject to Melting} \times T_{\text{melt}}}{100}$$
+$$\text{Jewellery Costing Percentage} = \frac{\text{Net Gold Subject to Melting} \times T_{\text{melt}}}{W_{\text{gold}}}$$
+
+---
+
+## 3. Ten Casting Losses and Expense Sub-Calculators
+
+1. **Alloy Loss**:
+   $$\text{Alloy Loss Result} = \frac{\text{Alloy Weight} \times \text{Alloy Rate}}{\frac{\text{Gold Rate} \times \text{Melting}}{100}}$$
+
+2. **Casting Loss**: Direct gram equivalent loss in centrifugal or vacuum investment casting.
+3. **Failing Loss**: Filing and burr trimming metal loss incurred during raw casting cleanup.
+4. **Sitting Loss**: Setting loss from prong bending and stone placement.
+5. **Polishing Loss**: High-speed buffing and lapping compound metal abrasion.
+6. **Stone Bill Loss**:
+   $$\text{Stone Bill Result} = \frac{\text{AD Stone Value (Rs)}}{\frac{\text{Gold Rate} \times \text{Melting}}{100}}$$
+7. **Gillet Loss**:
+   $$\text{Gillet Result} = \frac{\text{Gold Weight} \times \text{Gillet Rate}}{\frac{\text{Gold Rate} \times \text{Melting}}{100}}$$
+8. **Rhodium Loss**:
+   $$\text{Rhodium Result} = \frac{\text{Piece Count} \times \text{Rhodium Rate}}{\frac{\text{Gold Rate} \times \text{Melting}}{100}}$$
+9. **Lathiya Pech Loss**: Threading, screw mechanism, and findings assembly loss.
+10. **Extra Loss**: Miscellaneous tool and acid wash losses.
+
+---
+
+## 4. Karat to Touch Conversion Reference
+
+| Karat Rating | Purity Percentage (Touch) | Decimal Purity | Typical Hallmark Stamp |
+| :--- | :--- | :--- | :--- |
+| **24 Karat** | 99.9% - 99.5% | 0.999 - 0.995 | 999 |
+| **22 Karat** | 91.6% | 0.916 | 916 (BIS Hallmark) |
+| **20 Karat** | 83.3% | 0.833 | 833 |
+| **18 Karat** | 75.0% | 0.750 | 750 |
+| **14 Karat** | 58.5% | 0.585 | 585 |
+| **10 Karat** | 41.7% | 0.417 | 417 |
+| **9 Karat**  | 37.5% | 0.375 | 375 |
+
+---
+
+## 5. Frequently Asked Questions (FAQ)
+
+### Q: What is "Touch" in Indian and international gold craftsmanship?
+**A**: Touch (also spelled Touche or टंच) is the percentage purity of precious metal (gold or silver) on a scale of 1 to 100. For instance, standard 22 Karat jewelry in India has a touch of 91.6% (Hallmark 916), while 18 Karat gold has a touch of 75.0%.
+
+### Q: What is "Palo" in gold melting?
+**A**: Palo (पालो) refers to the base alloy metal—usually high-grade copper, fine silver, zinc, or cadmium—added into melted pure gold to lower its purity down to the desired ornament standard (e.g. converting 99.9 pure gold into 91.6 or 75.0 hallmark alloy).
+
+### Q: Does My Gold Melting require an internet connection?
+**A**: No. My Gold Melting is fully offline-first. It operates completely inside your web browser using client-side JavaScript and IndexedDB. It stores all calculation history locally and does not transmit any data to remote servers.
+
+### Q: How is casting loss calculated in custom jewelry manufacturing?
+**A**: Casting loss accounts for microscopic vaporization, crucible residue, sprue cutoffs, and oxidation during melting. In My Gold Melting, casting expenses convert financial and physical losses into equivalent fine gold grams so the goldsmith can accurately bill clients without underpricing.
+
+---
+
+## 6. Software Architecture & Verification
+
+- **Runtime Environment**: Modern Web Browsers (Chrome, Edge, Safari, Firefox, Opera).
+- **Client Database**: IndexedDB with LocalStorage fallback.
+- **Service Worker**: PWA Cache API (`gold-melting-v2`) with full offline execution.
+- **Data Protection**: 100% Client-Side execution. No remote logging, no user telemetry.
+- **Repository**: Evostackr MeltingManagement.

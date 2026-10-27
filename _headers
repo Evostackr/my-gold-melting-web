@@ -1,14 +1,15 @@
 # Cloudflare Pages Headers Configuration
 
-# Global Security Headers
+# Global Security & Performance Headers
 /*
   X-Frame-Options: SAMEORIGIN
   X-Content-Type-Options: nosniff
   X-XSS-Protection: 1; mode=block
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 
-# Cache static assets aggressively
+# Cache static assets aggressively (1 year immutable)
 /css/*
   Cache-Control: public, max-age=31536000, immutable
 
@@ -17,6 +18,33 @@
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
+
+# XML Sitemap, RSS Feed and Robots (1 day cache, explicit content types)
+/sitemap.xml
+  Cache-Control: public, max-age=86400
+  Content-Type: application/xml; charset=utf-8
+
+/rss.xml
+  Cache-Control: public, max-age=86400
+  Content-Type: application/rss+xml; charset=utf-8
+
+/robots.txt
+  Cache-Control: public, max-age=86400
+  Content-Type: text/plain; charset=utf-8
+
+# LLM Specifications (GEO / AEO)
+/llms.txt
+  Cache-Control: public, max-age=86400
+  Content-Type: text/plain; charset=utf-8
+
+/llms-full.txt
+  Cache-Control: public, max-age=86400
+  Content-Type: text/plain; charset=utf-8
+
+# Web App Manifest
+/manifest.json
+  Cache-Control: public, max-age=86400
+  Content-Type: application/manifest+json; charset=utf-8
 
 # HTML always fresh
 /*.html

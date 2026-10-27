@@ -1,0 +1,34 @@
+# My Gold Melting
+
+> My Gold Melting (https://gold-melting.evostackr.in/) is an offline-first, precision calculation suite designed for goldsmiths, jewellers, bullion assayers, and artisans. Developed by Ujwal Anand at Evostackr, the software computes multi-sample gold and silver melting purity, required additions of Palo (alloy) or pure fine gold to reach a target touch, and comprehensive jewellery costing with ten casting loss and expense factors.
+
+## Core Capabilities
+
+- **Gold & Silver Melting Control**: Compute weighted average touch across multiple gold/silver batches simultaneously. Calculate exact grams of Palo (alloy) or Fine Gold required to reach an exact target touch percentage.
+- **Jewellery Cost Control**: Calculate final fine gold requirements and jewellery costing percentages factoring in gross gold weight, American Diamond (AD) stone deductions, and ten granular casting expenses.
+- **Casting Expenses & Loss Calculation**: Precision sub-calculators for Alloy Loss, Casting Loss, Failing Loss, Sitting Loss, Polishing Loss, Stone Bill Loss, Gillet Loss, Rhodium Loss, Lathiya Pech Loss, and Extra Expenses.
+- **Offline-First & Zero Telemetry**: Operates 100% locally in browser memory and IndexedDB. Zero data collection, zero tracking, zero remote transmission of financial or calculation data.
+- **Trilingual Localization**: Full user interface support for English, Hindi (हिंदी), and Bengali (বাংলা).
+
+## Key Definitions & Terminology
+
+- **Touch (Touche / टंच)**: The purity percentage of precious metal (e.g., 91.6 touch = 22 Karat gold, 75.0 touch = 18 Karat gold, 99.9 touch = 24 Karat fine gold).
+- **Palo (alloy / पालो)**: Base alloy metal (typically copper, silver, or zinc) added to higher-purity melted gold to lower its purity down to the desired target touch.
+- **Fine Gold (फाइन गोल्ड)**: Pure 100% (or 99.9%) gold content contained in a given alloy or ornament.
+- **Jewellery Costing**: The net fine gold equivalent percentage charging rate for custom ornament fabrication after compensating for stones and manufacturing losses.
+
+## Primary Pages & Documentation
+
+- [Home & Interactive Web Application](https://gold-melting.evostackr.in/): Interactive PWA calculator with dashboard, history tracking, and offline persistence.
+- [Gold Melting Calculator Guide](https://gold-melting.evostackr.in/gold-melting-calculator.html): Step-by-step mathematical guide, conversion tables, and live melting touch calculator.
+- [Jewellery Costing Calculator Guide](https://gold-melting.evostackr.in/jewellery-costing-calculator.html): In-depth formulas for jewelry costing, fine gold calculation, and 10 casting loss factors.
+- [Goldsmith Knowledge Base & FAQ](https://gold-melting.evostackr.in/faq.html): Frequently asked questions on gold melting, touch calculations, and casting accounting.
+- [About Evostackr & Author](https://gold-melting.evostackr.in/about.html): Background, author credentials (Ujwal Anand), and contact details.
+- [Privacy Policy](https://gold-melting.evostackr.in/privacy-policy.html): Privacy pledge, local data storage policy, and zero-telemetry guarantee.
+- [Full Documentation for LLMs](https://gold-melting.evostackr.in/llms-full.txt): Complete mathematical formulas, code algorithms, worked numerical examples, and technical specifications.
+
+## Author & Attribution
+
+- **Organization**: Evostackr (https://www.evostackr.in/)
+- **Author & Lead Developer**: Ujwal Anand
+- **Support Contact**: support@evostackr.in | +91 62028 50596

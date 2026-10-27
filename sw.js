@@ -1,10 +1,20 @@
-// My Gold Melting - Offline Service Worker
-const CACHE_NAME = 'gold-melting-v1';
+// My Gold Melting - Offline Service Worker (v2)
+const CACHE_NAME = 'gold-melting-v2';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
+  './gold-melting-calculator.html',
+  './jewellery-costing-calculator.html',
+  './about.html',
+  './faq.html',
   './privacy-policy.html',
+  './404.html',
   './manifest.json',
+  './sitemap.xml',
+  './rss.xml',
+  './robots.txt',
+  './llms.txt',
+  './llms-full.txt',
   './css/style.css',
   './js/app.js',
   './js/calculator.js',
@@ -49,7 +59,12 @@ self.addEventListener('fetch', (event) => {
           cache.put(event.request, responseToCache);
         });
         return networkResponse;
-      }).catch(() => caches.match('./index.html'));
+      }).catch(() => {
+        // Fallback to index if navigating
+        if (event.request.mode === 'navigate') {
+          return caches.match('./index.html');
+        }
+      });
     })
   );
 });

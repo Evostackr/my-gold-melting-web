@@ -1,22 +1,59 @@
 {
-  "name": "My Gold Melting",
+  "id": "https://gold-melting.evostackr.in/",
+  "name": "My Gold Melting - Goldsmith Utility",
   "short_name": "Gold Melting",
-  "description": "Calculate gold and silver melting purity, touches, and jewellery costing.",
+  "description": "Calculate gold and silver melting purity, touches, and jewellery costing offline.",
   "start_url": "index.html",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#F0F0F1",
   "theme_color": "#2196F3",
-  "orientation": "portrait",
+  "orientation": "any",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": [
+    "business",
+    "utilities",
+    "productivity"
+  ],
+  "shortcuts": [
+    {
+      "name": "Melting Calculator",
+      "short_name": "Melting",
+      "description": "Calculate gold melting purity and Palo addition",
+      "url": "index.html#/melting",
+      "icons": [
+        {
+          "src": "assets/images/ic_launcher.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Jewellery Costing",
+      "short_name": "Costing",
+      "description": "Calculate fine gold and casting losses",
+      "url": "index.html#/jewellery-cost",
+      "icons": [
+        {
+          "src": "assets/images/ic_launcher.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
   "icons": [
     {
       "src": "assets/images/ic_launcher.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "assets/images/ic_launcher.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }

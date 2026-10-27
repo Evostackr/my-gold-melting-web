@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My Gold Melting - Updates &amp; Goldsmith Guides</title>
+    <link>https://gold-melting.evostackr.in/</link>
+    <description>Latest technical guides, gold and silver melting purity calculation formulas, touch standards, and jewellery costing updates from Evostackr.</description>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 27 Oct 2026 10:00:00 +0000</lastBuildDate>
+    <atom:link href="https://gold-melting.evostackr.in/rss.xml" rel="self" type="application/rss+xml"/>
+    
+    <item>
+      <title>Gold Melting &amp; Touch Purity Calculation Guide</title>
+      <link>https://gold-melting.evostackr.in/gold-melting-calculator.html</link>
+      <guid isPermaLink="true">https://gold-melting.evostackr.in/gold-melting-calculator.html</guid>
+      <pubDate>Tue, 27 Oct 2026 10:00:00 +0000</pubDate>
+      <description>Master multi-sample gold and silver melting calculations. Learn when to Add Palo (alloy) vs. Add Fine Gold with exact formulas and Karat-to-Touch reference tables.</description>
+    </item>
+
+    <item>
+      <title>Jewellery Costing &amp; 10 Casting Expenses Breakdown</title>
+      <link>https://gold-melting.evostackr.in/jewellery-costing-calculator.html</link>
+      <guid isPermaLink="true">https://gold-melting.evostackr.in/jewellery-costing-calculator.html</guid>
+      <pubDate>Tue, 27 Oct 2026 10:00:00 +0000</pubDate>
+      <description>Comprehensive breakdown of fine gold calculation and the 10 manufacturing and casting loss factors including alloy loss, stone bill loss, gillet, and rhodium losses.</description>
+    </item>
+
+    <item>
+      <title>Goldsmith Knowledge Base &amp; Frequently Asked Questions</title>
+      <link>https://gold-melting.evostackr.in/faq.html</link>
+      <guid isPermaLink="true">https://gold-melting.evostackr.in/faq.html</guid>
+      <pubDate>Tue, 27 Oct 2026 10:00:00 +0000</pubDate>
+      <description>Expert answers to common questions regarding gold touches, hallmarking standards (916, 750), palo additions, gemstone deductions, and offline calculations.</description>
+    </item>
+
+    <item>
+      <title>About Evostackr &amp; Lead Engineer Ujwal Anand</title>
+      <link>https://gold-melting.evostackr.in/about.html</link>
+      <guid isPermaLink="true">https://gold-melting.evostackr.in/about.html</guid>
+      <pubDate>Tue, 27 Oct 2026 10:00:00 +0000</pubDate>
+      <description>The background, metallurgical engineering standards, offline-first philosophy, and verified contact credentials behind the My Gold Melting suite.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,4 +1,81 @@
+# ==============================================================================
+# robots.txt for My Gold Melting (https://gold-melting.evostackr.in/)
+# Optimized for Traditional Search Engines, Answer Engines (AEO), and Generative AI (GEO)
+# ==============================================================================
+
+# Global Crawler Directive
 User-agent: *
 Allow: /
+Allow: /sitemap.xml
+Allow: /rss.xml
+Allow: /robots.txt
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /gold-melting-calculator.html
+Allow: /jewellery-costing-calculator.html
+Allow: /about.html
+Allow: /faq.html
+Allow: /privacy-policy.html
+Allow: /css/
+Allow: /js/
+Allow: /assets/
 
-Sitemap: https://goldmelting.evostackr.in/sitemap.xml
+# Google Search & Gemini Extended
+User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Google-Extended
+Allow: /
+
+# Microsoft Bing & Copilot
+User-agent: Bingbot
+User-agent: msnbot
+Allow: /
+
+# OpenAI ChatGPT (Training & Realtime Search Agent)
+User-agent: GPTBot
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic Claude (Search & Assistant Retrieval)
+User-agent: ClaudeBot
+User-agent: Claude-Web
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity AI Answer Engine
+User-agent: PerplexityBot
+Allow: /
+
+# Apple Intelligence & Siri Search
+User-agent: Applebot
+User-agent: Applebot-Extended
+Allow: /
+
+# Amazon AI & Alexa
+User-agent: Amazonbot
+Allow: /
+
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+
+# Meta AI / Facebook
+User-agent: meta-externalagent
+User-agent: FacebookBot
+Allow: /
+
+# ByteDance
+User-agent: Bytespider
+Allow: /
+
+# Common Crawl (Foundation model dataset)
+User-agent: CCBot
+Allow: /
+
+# DuckDuckGo & Yahoo
+User-agent: DuckDuckBot
+User-agent: Slurp
+Allow: /
+
+# XML Sitemap
+Sitemap: https://gold-melting.evostackr.in/sitemap.xml
