@@ -1,18 +1,2 @@
-# Cloudflare Pages Clean Static Routing & SPA Fallback
-/sitemap.xml                  /sitemap.xml                  200
-/rss.xml                      /rss.xml                      200
-/robots.txt                   /robots.txt                   200
-/llms.txt                     /llms.txt                     200
-/llms-full.txt                /llms-full.txt                200
-/gold-melting-calculator      /gold-melting-calculator.html 200
-/gold-melting-calculator.html /gold-melting-calculator.html 200
-/jewellery-costing-calculator /jewellery-costing-calculator.html 200
-/jewellery-costing-calculator.html /jewellery-costing-calculator.html 200
-/about                        /about.html                   200
-/about.html                   /about.html                   200
-/faq                          /faq.html                     200
-/faq.html                     /faq.html                     200
-/privacy-policy               /privacy-policy.html          200
-/privacy-policy.html          /privacy-policy.html          200
-/404.html                     /404.html                     200
-/*                            /index.html                   200
+# Cloudflare Pages Routing
+/*    /index.html   200
